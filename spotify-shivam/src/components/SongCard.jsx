@@ -8,7 +8,7 @@ const SongCard = ({ song, handlePlay }) => {
     >
       {/* Image */}
       <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
-        <img
+        <img  
           src={song.thumbnail}
           alt={song.title}
           className="w-full h-full object-cover"

@@ -1,24 +1,29 @@
+// songReducer.js
+
 import { createSlice } from "@reduxjs/toolkit";
 
-let songsSlice = createSlice({
-  name: "song",
-  initialState: {
-    currentSong: null,
-    isPlaying: false,
-  },
+const initialState = {
+  currentSong: null,
+  isPlaying: false,
+};
+
+const songSlice = createSlice({
+  name: "music",
+
+  initialState,
+
   reducers: {
     addSong: (state, action) => {
       state.currentSong = action.payload;
       state.isPlaying = true;
     },
-    play: (state) => {
-      state.isPlaying = true;
-    },
-    pause: (state) => {
-      state.isPlaying = false;
+
+    togglePlay: (state) => {
+      state.isPlaying = !state.isPlaying;
     },
   },
 });
 
-export let { addSong, play, pause } = songsSlice.actions;
-export default songsSlice.reducer;
+export const { addSong, togglePlay } = songSlice.actions;
+
+export default songSlice.reducer;

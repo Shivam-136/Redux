@@ -1,65 +1,135 @@
-import { Search, Home, Bell, Download, Menu } from "lucide-react";
+import React from "react";
+import {
+  Search,
+  Home,
+  Bell,
+  Download,
+  Menu,
+  Library,
+} from "lucide-react";
 
 const Navbar = () => {
   return (
-    <div className="w-full bg-black px-3 sm:px-5 md:px-6 py-3 flex items-center justify-between">
+    <nav className="w-full h-16 bg-black px-4 flex items-center justify-between">
       
-      {/* LEFT SECTION */}
-      <div className="flex items-center gap-2 sm:gap-4">
+      {/* LEFT */}
+      <div className="flex items-center gap-3">
         
-        {/* MENU ICON */}
-        <button className="text-white md:hidden">
-          <Menu className="w-5 h-5" />
+        {/* MOBILE MENU */}
+        <button className="md:hidden text-white">
+          <Menu size={24} />
         </button>
 
-        {/* LOGO */}
-        <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shrink-0">
-          <span className="text-black font-bold">S</span>
+        {/* SPOTIFY LOGO */}
+        <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center cursor-pointer">
+          <span className="text-black font-bold text-lg">
+            S
+          </span>
         </div>
+      </div>
 
-        {/* HOME BUTTON */}
-        <button className="w-9 h-9 sm:w-10 sm:h-10 bg-[#1f1f1f] rounded-full flex items-center justify-center hover:bg-[#2a2a2a] transition">
-          <Home className="text-white w-4 h-4 sm:w-5 sm:h-5" />
+      {/* CENTER */}
+      <div className="flex items-center gap-3 flex-1 justify-center px-3">
+        
+        {/* HOME */}
+        <button className="hidden sm:flex w-12 h-12 bg-[#1f1f1f] hover:bg-[#2a2a2a] rounded-full items-center justify-center transition">
+          <Home
+            size={22}
+            className="text-white"
+            fill="white"
+          />
         </button>
 
-        {/* SEARCH BAR */}
-        <div className="flex items-center bg-[#1f1f1f] px-3 py-2 rounded-full w-[140px] sm:w-[220px] md:w-[320px] lg:w-[400px] focus-within:bg-[#2a2a2a] transition">
-          
-          <Search className="text-gray-400 w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+        {/* SEARCH */}
+        <div
+          className="
+            flex
+            items-center
+            bg-[#1f1f1f]
+            hover:bg-[#2a2a2a]
+            focus-within:ring-2
+            focus-within:ring-white
+            transition
+            rounded-full
+            h-12
+            w-full
+            max-w-[520px]
+            px-4
+          "
+        >
+          <Search
+            size={22}
+            className="text-gray-400 mr-3"
+          />
 
           <input
             type="text"
-            placeholder="Search..."
-            className="bg-transparent outline-none text-white w-full text-sm placeholder-gray-400"
+            placeholder="What do you want to play?"
+            className="
+              bg-transparent
+              outline-none
+              border-none
+              w-full
+              text-white
+              placeholder:text-gray-400
+              text-sm
+            "
+          />
+
+          {/* RIGHT ICON */}
+          <div className="h-6 w-[1px] bg-gray-600 mx-3 hidden sm:block"></div>
+
+          <Library
+            size={22}
+            className="hidden sm:block text-gray-400 hover:text-white cursor-pointer"
           />
         </div>
       </div>
 
-      {/* RIGHT SECTION */}
-      <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
+      {/* RIGHT */}
+      <div className="flex items-center gap-4">
         
         {/* PREMIUM */}
-        <button className="hidden sm:block text-white text-sm md:text-base font-semibold hover:scale-105 transition">
+        <button
+          className="
+            hidden
+            lg:block
+            bg-white
+            text-black
+            font-bold
+            text-sm
+            px-5
+            py-3
+            rounded-full
+            hover:scale-105
+            transition
+          "
+        >
           Explore Premium
         </button>
 
-        {/* INSTALL APP */}
-        <button className="flex items-center gap-1 md:gap-2 text-gray-300 hover:text-white transition">
-          
-          <Download className="w-4 h-4" />
+        {/* INSTALL */}
+        <button className="hidden md:flex items-center gap-2 text-gray-300 hover:text-white transition">
+          <Download size={18} />
 
-          <span className="hidden md:block text-sm">
+          <span className="text-sm font-semibold">
             Install App
           </span>
         </button>
 
         {/* BELL */}
-        <Bell className="text-gray-300 hover:text-white cursor-pointer w-5 h-5" />
+        <button className="text-gray-300 hover:text-white">
+          <Bell size={20} />
+        </button>
 
         {/* PROFILE */}
-        <div className="w-8 h-8 bg-gray-600 rounded-full cursor-pointer shrink-0"></div>
+        <div className="w-10 h-10 bg-[#1f1f1f] rounded-full p-[3px] cursor-pointer">
+          <div className="w-full h-full bg-[#535353] rounded-full flex items-center justify-center text-white font-bold">
+            S
+          </div>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

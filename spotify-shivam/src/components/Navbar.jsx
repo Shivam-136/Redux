@@ -125,7 +125,6 @@ const Navbar = () => {
         {/* PROFILE */}
         <div className="w-10 h-10 bg-[#1f1f1f] rounded-full p-[3px] cursor-pointer">
           <div className="w-full h-full bg-[#535353] rounded-full flex items-center justify-center text-white font-bold">
-            S
           </div>
         </div>
       </div>

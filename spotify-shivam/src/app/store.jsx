@@ -1,7 +1,8 @@
-import {configureStore} from '@reduxjs/toolkit'
+import { configureStore } from "@reduxjs/toolkit";
+import songsReducer from "../features/songReducer";
 
-const store = configureStore({
-    reducer:{
-        
-    }
-})
+export let store = configureStore({
+  reducer: {
+    music: songsReducer,
+  },
+});

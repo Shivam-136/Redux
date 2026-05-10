@@ -1,11 +1,29 @@
-import React from 'react'
+import React from "react";
+import musics from "../utils-songsjson/songs.json";
+import SongCard from "../components/SongCard";
+import { nanoid } from "nanoid";
+import { useSongs } from "../hooks/useSongs";
 
 const HomePage = () => {
-  return (
-    <div>
-      <h1>HomePage</h1>
-    </div>
-  )
-}
+  let { handlePlay } = useSongs();
 
-export default HomePage
+  let songs = musics.map((elem) => {
+    return { ...elem, id: nanoid() };
+  });
+
+  return (
+    <div className="flex flex-wrap gap-5">
+      {songs.map((elem) => {
+        return (
+          <SongCard
+            handlePlay={handlePlay}
+            key={elem.id}
+            song={elem}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+export default HomePage;

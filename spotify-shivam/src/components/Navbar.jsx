@@ -23,7 +23,6 @@ const Navbar = () => {
         {/* SPOTIFY LOGO */}
         <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center cursor-pointer">
           <span className="text-black font-bold text-lg">
-            S
           </span>
         </div>
       </div>
